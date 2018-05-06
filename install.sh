@@ -55,28 +55,12 @@ detect_os
 
 echo $os
 
+if [ $os = "Ubuntu" ]; then
+    wget https://github.com/OpenBangla/OpenBangla-Keyboard/releases/download/1.4.0/OpenBangla-Keyboard_1.4.0-ubuntu18.04.deb -O /tmp/OpenBangla.deb
+    sudo apt install /tmp/OpenBangla.deb
 
-# echo "Getting the File"
-# wget -O "$temp_file" \
-#         "https://github.com/PapirusDevelopmentTeam/$gh_repo/archive/$BRANCH.tar.gz"
+elif [$os = "ManjaroLinux"];then
+      wget https://github.com/OpenBangla/OpenBangla-Keyboard/releases/download/1.4.0/openbangla-keyboard-1.4.0-1-x86_64-archlinux.pkg.tar.xz -O /tmp/OpenBangla.pkg.tar.xz
+      sudo pacman -U /tmp/OpenBangla.pkg.tar.xz
 
-# echo "$(whoami)"
-# [ "$UID" -eq 0 ] || exec sudo "$0" "$@"
-
-
-
-# _download() {
-#    _msg "Getting the latest version from GitHub ..."
-#    wget -O "$temp_file" \
-#        "https://github.com/PapirusDevelopmentTeam/$gh_repo/archive/$BRANCH.tar.gz"
-#     _msg "Unpacking archive ..."
-#     tar -xzf "$temp_file" -C "$temp_dir"
-# }
-
-
-
-
-# sf [ "$EUID" -ne 0 ]
-#  then echo "Please run as root"
-#  exit
-# fi
+fi 
